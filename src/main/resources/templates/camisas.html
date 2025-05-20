@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Camisa - Tienda</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
+
+        .pagina-producto {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .contenedor-producto {
+            display: flex;
+            background-color: white;
+            max-width: 1000px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .imagen-producto img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            object-fit: cover;
+        }
+
+        .detalles-producto {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .nombre-producto {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        .descripcion-producto {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .precio-producto {
+            font-size: 24px;
+            color: #000;
+            margin-bottom: 30px;
+        }
+
+        .boton-comprar {
+            padding: 12px 24px;
+            background-color: #000;
+            color: white;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .boton-comprar:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body class="pagina-producto">
+
+<div class="contenedor-producto">
+    <div class="imagen-producto">
+        <img th:src="${camisa.imagen}" alt="Imagen de la camisa">
+    </div>
+    <div class="detalles-producto">
+        <h1 class="nombre-producto" th:text="${camisa.nombre}"></h1>
+        <p class="descripcion-producto" th:text="${camisa.descripcion}"></p>
+        <h2 class="precio-producto" th:text="${camisa.precio} + ' MXN'"></h2>
+        <button class="boton-comprar">Añadir al carrito</button>
+    </div>
+</div>
+
+<footer th:replace="index :: footer"></footer>
+<div th:replace="index :: jsincludes"></div>
+
+</body>
+</html>
