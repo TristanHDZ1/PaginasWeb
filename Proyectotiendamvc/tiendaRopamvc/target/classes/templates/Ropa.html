@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Camisa - Tienda</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        .pagina-producto {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 60px 20px;
+            box-sizing: border-box;
+        }
+
+        .contenedor-producto {
+            display: flex;
+            flex-direction: row;
+            max-width: 1100px;
+            width: 100%;
+            gap: 60px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 60px;
+        }
+
+        .imagen-producto img {
+            width: 500px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        }
+
+        .detalles-producto {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 500px;
+        }
+
+        .nombre-producto {
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .descripcion-producto {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .precio-producto {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        .boton-comprar {
+            padding: 14px 28px;
+            font-size: 1rem;
+            background-color: #1a1a1a;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .boton-comprar:hover {
+            background-color: #333333;
+        }
+
+        @media (max-width: 768px) {
+            .contenedor-producto {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .imagen-producto img {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .detalles-producto {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body class="pagina-producto">
+
+<div class="contenedor-producto">
+    <div class="imagen-producto">
+        <img th:src="${Ropa.imagen}" alt="Imagen de la camisa">
+    </div>
+
+    <div class="detalles-producto">
+        <h1 class="nombre-producto" th:text="${Ropa.nombre}"></h1>
+        <p class="descripcion-producto" th:text="${Ropa.descripcion}"></p>
+        <h2 class="precio-producto" th:text="${Ropa.precio} + ' MXN'"></h2>
+        <button class="boton-comprar">Añadir al carrito</button>
+    </div>
+</div>
+
+<footer th:replace="index :: footer"></footer>
+<div th:replace="index :: jsincludes"></div>
+
+</body>
+</html>
