@@ -1,10 +1,18 @@
 package mx.unam.aragon.te.tiendaRopamvc.Models;
 
+import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.GetMapping;
+
 import java.util.Objects;
 
+@Entity
+@Table(name = "Prendas")
 public class Ropa{
+    @Id
+    @GeneratedValue (strategy = jakarta.persistence.GenerationType.IDENTITY)
     private int precio;
     private String descripcion;
+    @Column (name = "Nombre" , nullable = false)
     private String nombre;
     private int id;
     private String imagen;

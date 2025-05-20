@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+</head>
+<body>
+
+<p class="text-succes" th:if ="${param.exito}" >Camisa dada de alta</p>
+<hr>
+<form  th:action="@{/tienda/guardar}" th:object="${Ropa}" th:method="post">
+    <label>Nombre</label>
+    <input type="text" name="nombre" id="nombre" th:field="*{nombre}">
+    <label>Precio</label>
+    <input type="text" name="precio" id="precio" th:field="*{precio}">
+    <label>id</label>
+    <input type="text" name="idRopa" id="idRopa" th:field="*{id}">
+    <label>imagen</label>
+    <input type="text" name="imagen" id="imagen" th:field="*{imagen}">
+
+    <button type="submit">Enviar</button>
+</form>
+</body>
+</html>
